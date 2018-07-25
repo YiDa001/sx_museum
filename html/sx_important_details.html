@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重要文物详情页</title>
+    <link rel="stylesheet" href="../css/sx_important_details.css">
+    <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <script type="text/javascript" src="../js/vue-3d-model.min.js"></script>
+    <script type="text/javascript" src="../js/sx_important_details.js"></script>
+</head>
+<body>
+
+    <div class="sx_nav">
+        <a href="./sx_all.html" class="sx_nav_logo"><img src="../img/logo.png" alt="无法显示"></a>
+        <ul class="sx_nav_ul">
+            <li><a>文物基本信息</a></li>
+            <li><a>环境信息</a></li>
+            <li><a class="nav_active">重点文物信息</a></li>
+            <li><a>创意文物信息</a></li>
+            <li><a>博物馆舆情</a></li>
+        </ul>
+    </div>
+    <div class="details_content">
+        <div class="top_title">
+            <a href="javascript:void(0);">重点文物信息</a> >
+            <a href="javascript:void(0);">瓷器</a>
+        </div>
+        <!--3d模型-->
+        <div class="img_three_d">
+            <div class="img_box">
+                <img src="../img/three_img1.jpg" alt="无法显示" style="width: 100%;height: 100%">
+            </div>
+
+            <div id="model_box" class="model_box" @mouseover="stopRotation" @mouseout="rotate">
+                <model-obj :rotation="rotation"
+                           @on-load="onLoad"
+                           :scale="scale"
+                           :position="position"
+                           src="../model/hats.obj" mtl=""   :style="{width:model_width,height:model_height}"  ></model-obj>
+            </div>
+        </div>
+        <div class="relic_introduce">
+            <span class="relic_title">【清同治年制款黄地粉彩梅鹊纹瓷碗】</span>
+            <div class="relic_content">
+                <p>文物编号：222569965626</p>
+                <p>文物名称：清乾隆款窑变玫瑰紫釉瓷胆瓶</p>
+                <p>文物等级：二级文物</p>
+                <p>文物年代：清同治年</p>
+                <p class="relic_details">侈口，浅弧腹，双圈足。通体青花绘缠枝荷花纹。外底青花双线圈内署楷书“大清康熙年製”六字双行款。康熙青花是继明永乐、宣德、成化、嘉靖青花之后又一青花制作高潮。康熙青花的青料，
+是使用国产的浙江料。青花发色十分鲜艳，有浓翠的感觉。</p>
+            </div>
+        </div>
+        <div class="relic_data">
+            <div class="relic_data_font">
+                <form>
+                    <fieldset class="data_font_left">
+                        <legend>特征数据</legend>
+                        <div class="data_left_details">
+                            <p>文物类别：陶瓷</p>
+                            <p>文物质地：瓷器</p>
+                            <p>完残情况：完整</p>
+                            <p>其他：</p>
+                        </div>
+                    </fieldset>
+                    <fieldset class="data_font_right">
+                        <legend>馆藏数据</legend>
+                        <div class="data_right_details">
+                            <p>文物征集来源：XXXXXXXXXXX</p>
+                            <p>保存状态：完好</p>
+                            <p>修复记录：</p>
+                            <p style="text-indent: 2em;">中国陶瓷自唐代以来即远销世界各国，其卓越的制瓷技术和辉煌的艺术成就对多国家
+             的陶瓷生产均产生过深远影响，有力地推动了世界陶瓷文化的发展，这也充分说明中国无愧于“瓷国”之盛誉。中国陶瓷自唐代以来即远销世界各国，其卓越的制瓷技术和辉煌的术成就对多国家的陶瓷生产均产生过深远影响，有力地推动了世界陶瓷文化的发展，这也充分说明中国无愧于“瓷国”之盛誉。中国陶瓷自唐代以来即远销世界各国，其卓越的制瓷技术和辉煌的艺术成就对多国家的明中国无愧于“瓷国”之盛誉... ...</p>
+                        </div>
+                        <p class="font_more"><i></i>更多</p>
+                    </fieldset>
+                    <fieldset class="env_monitoring">
+                        <legend>微环境监控</legend>
+                        <div class="env_standardRate">
+                            <div id="standardRate"></div>
+                        </div>
+                        <div class="env_parameter">
+                            <div id="parameter"></div>
+                        </div>
+                        <div class="env_stability">
+                            <div id="stability">
+                                <div class="stability_box">
+                                    <p class="stability_title">湿度稳定性</p>
+                                    <div class="progressBar">
+                                        <p style="width: 30%;"></p>
+                                    </div>
+                                </div>
+                                <div class="stability_box">
+                                    <p class="stability_title">温度稳定性</p>
+                                    <div class="progressBar">
+                                        <p style="width: 0;"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <!--文物历史-->
+        <div class="relic_history">
+            <div class="history_img">
+                <img src="../img/history1.jpg" alt="无法显示">
+            </div>
+            <div class="history_show">
+                <div class="history_up_out">
+                    <div class="history_up_box">
+                        <div class="history_up">
+                            <div class="line_down">
+                                <div class="circle_div">
+                                    <div class="circle_content">
+                                        <div class="two_circle"></div>
+                                        <div class="center_circle"></div>
+                                    </div>
+                                </div>
+                                <div class="history_down_font">
+                                    <p class="down_font">发现:XXXXX</p>
+                                    <p class="down_font">出土：XXX</p>
+                                    <p class="down_font">修复：XXXXXXXXXX</p>
+                                    <p class="down_font">定级：XXX</p>
+                                    <p class="down_font">获奖：XXX</p>
+                                    <p class="down_font">重要展出：XXX</p>
+                                    <p class="discover_font">约公元前16世纪</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history_up" >
+                            <div class="line_down">
+                                <div class="circle_div">
+                                    <div class="circle_content">
+                                        <div class="two_circle"></div>
+                                        <div class="center_circle"></div>
+                                    </div>
+                                </div>
+                                <div class="history_down_font">
+                                    <p class="down_font">发现:XXXXX</p>
+                                    <p class="down_font">出土：XXX</p>
+                                    <p class="down_font">修复：XXXXXXXXXX</p>
+                                    <p class="down_font">定级：XXX</p>
+                                    <p class="down_font">获奖：XXX</p>
+                                    <p class="down_font">重要展出：XXX</p>
+                                    <p class="discover_font">约公元前16世纪</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="time_axis_box">-->
+                    <!--<div class="time_axis">-->
+                        <!--<p class="time_Arrow"></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="history_down_out">
+                    <p class="time_Arrow">
+                    <div class="history_down_box">
+                        <!--<p class="time_Arrow"></p>-->
+                        <div class="history_down">
+                                <div class="line_down">
+                                    <div class="circle_div">
+                                        <div class="circle_content">
+                                            <div class="two_circle"></div>
+                                            <div class="center_circle"></div>
+                                        </div>
+                                    </div>
+                                    <div class="history_down_font">
+                                        <p class="down_font">发现</p>
+                                        <p class="down_font">1998年，龙山文化是我国新石器时代晚期的一种文化，因1928年首次发现于山东章丘龙山镇而得名。</p>
+                                        <p class="down_font">发现</p>
+                                        <p class="down_font">1998年，龙山文化是我国新石器时代晚期的一种文化，因1928年首次发现于山东章丘龙山镇而得名。</p>
+                                        <p class="discover_font">约公元前16世纪</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="history_down">
+                                <div class="line_down">
+                                    <div class="circle_div">
+                                        <div class="circle_content">
+                                            <div class="two_circle"></div>
+                                            <div class="center_circle"></div>
+                                        </div>
+                                    </div>
+                                    <div class="history_down_font">
+                                        <p class="down_font">发现:XXXXX</p>
+                                        <p class="down_font">出土：XXX</p>
+                                        <p class="down_font">修复：XXXXXXXXXX</p>
+                                        <p class="down_font">定级：XXX</p>
+                                        <p class="down_font">获奖：XXX</p>
+                                        <p class="down_font">重要展出：XXX</p>
+                                        <p class="discover_font">约公元前16世纪</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="history_down">-->
+                                <!--<div class="line_down">-->
+                                    <!--<div class="circle_div">-->
+                                        <!--<div class="circle_content">-->
+                                            <!--<div class="two_circle"></div>-->
+                                            <!--<div class="center_circle"></div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="history_down_font">-->
+                                        <!--<p class="down_font">发现:XXXXX</p>-->
+                                        <!--<p class="down_font">出土：XXX</p>-->
+                                        <!--<p class="down_font">修复：XXXXXXXXXX</p>-->
+                                        <!--<p class="down_font">定级：XXX</p>-->
+                                        <!--<p class="down_font">获奖：XXX</p>-->
+                                        <!--<p class="down_font">重要展出：XXX</p>-->
+                                        <!--<p class="discover_font">约公元前16世纪</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="relic_relevant">
+            <div class="relic_font_box">
+                <p class="relic_relevant_font">文物相关信息</p>
+            </div>
+            <div id="heatMapDiv">
+            </div>
+        </div>
+        <div class="similar_relic">
+            <div class="similar_relic_top">
+                <div class="similar_relic_label"></div>
+                <span class="similar_relic_title">相似文物一览</span>
+            </div>
+            <div class="similar_relic_bottom">
+                <div class="relic_view_box">
+                    <div class="relic_move">
+                        <ul class="view_front">
+                            <li class="similar_relic_img">
+                                <img src="../img/detail_vase.png">
+                                <span class="similar_relic_name">清&nbsp;·&nbsp;陶瓷花瓶1</span>
+                                <div class="mask">
+                                    <div class="content">
+                                        <p>文物名称：<span class="name">陶瓷花瓶</span></p>
+                                        <p>文物等级：<span class="level">一级文物</span></p>
+                                        <p>文物年代：<span class="year">清代</span></p>
+                                        <p>文物材质：<span class="material">陶瓷</span></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="similar_relic_img">
+                                <img src="../img/detail_vase.png">
+                                <span class="similar_relic_name">清&nbsp;·&nbsp;陶瓷花瓶2</span>
+                                <div class="mask">
+                                    <div class="content">
+                                        <p>文物名称：<span class="name">陶瓷花瓶</span></p>
+                                        <p>文物等级：<span class="level">一级文物</span></p>
+                                        <p>文物年代：<span class="year">清代</span></p>
+                                        <p>文物材质：<span class="material">陶瓷</span></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="similar_relic_img">
+                                <img src="../img/detail_vase.png">
+                                <span class="similar_relic_name">清&nbsp;·&nbsp;陶瓷花瓶3</span>
+                                <div class="mask">
+                                    <div class="content">
+                                        <p>文物名称：<span class="name">陶瓷花瓶</span></p>
+                                        <p>文物等级：<span class="level">一级文物</span></p>
+                                        <p>文物年代：<span class="year">清代</span></p>
+                                        <p>文物材质：<span class="material">陶瓷</span></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="similar_relic_img">
+                                <img src="../img/detail_vase.png">
+                                <span class="similar_relic_name">清&nbsp;·&nbsp;陶瓷花瓶4</span>
+                                <div class="mask">
+                                    <div class="content">
+                                        <p>文物名称：<span class="name">陶瓷花瓶</span></p>
+                                        <p>文物等级：<span class="level">一级文物</span></p>
+                                        <p>文物年代：<span class="year">清代</span></p>
+                                        <p>文物材质：<span class="material">陶瓷</span></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="similar_relic_img">
+                                <img src="../img/detail_vase.png">
+                                <span class="similar_relic_name">清&nbsp;·&nbsp;陶瓷花瓶5</span>
+                                <div class="mask">
+                                    <div class="content">
+                                        <p>文物名称：<span class="name">陶瓷花瓶</span></p>
+                                        <p>文物等级：<span class="level">一级文物</span></p>
+                                        <p>文物年代：<span class="year">清代</span></p>
+                                        <p>文物材质：<span class="material">陶瓷</span></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="view_behind"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<iframe src="3D_model.html" frameborder="0" width="900px" height="600px" class="model_iframe">-->
+
+    <!--</iframe>-->
+</body>
+</html>

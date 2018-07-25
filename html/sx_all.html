@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三峡博物馆网站（展示）</title>
+    <link rel="stylesheet" href="../css/jquery.fullPage.css">
+    <link href="../css/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sx_all.css">
+    <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+    <!--单屏滚动-->
+    <script type="text/javascript" src="../js/jquery.fullPage.js"></script>
+    <!--数字滚动-->
+    <script type="text/javascript" src="../js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.countup.min.js"></script>
+    <!--特展人流量统计-->
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <!--视频播放-->
+    <script type="text/javascript" src="../js/plyr.js"></script>
+    <link rel="stylesheet" href="../css/plyr.css">
+    <!--三峡页面js-->
+
+    <script type="text/javascript" src="../js/sx_all.js"></script>
+</head>
+<body>
+    <div class="sx_nav">
+        <a href="./sx_all.html" class="sx_nav_logo"><img src="../img/logo.png" alt="无法显示"></a>
+        <ul class="sx_nav_ul">
+            <li><a class="nav_active">文物基本信息</a></li>
+            <li><a>环境信息</a></li>
+            <li><a>重点文物信息</a></li>
+            <li><a>创意文物信息</a></li>
+            <li><a>博物馆舆情</a></li>
+        </ul>
+    </div>
+    <div class="video_play_mask">
+        <div class="video_play_container">
+            <div class="video"></div>
+            <button class="video_close">
+                <img src="../img/video_close.png">
+            </button>
+        </div>
+    </div>
+    <div id="fullPageDiv">
+        <div class="section active">
+            <div id="basic_info">
+                <div class="basic_info_top">
+                    <div>
+                        文物总数：
+                        <span class="counter">0</span>
+                        &nbsp;件
+                    </div>
+                    <div class="visit_num">
+                        参观人数累计：
+                        <span class="counter">0</span>
+                        &nbsp;人/
+                        今日：
+                        <span class="counter">0</span>
+                        &nbsp;人
+                    </div>
+                    <div>WIFI链接：
+                        <span class="counter">0</span>
+                        &nbsp;人
+                    </div>
+                </div>
+                <div class="basic_info_middle">
+                    <div class="left">
+                        <ul>
+                            <li class="basis">
+                                <span>按等级</span>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">33550</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">一级文物</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">553</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">二级文物</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">5800</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">三级文物</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">86</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">一般文物</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="basis">
+                                <span>按年代</span>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">52003</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">夏商周</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">152260</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">秦汉代</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">5237</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">唐宋元明清</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">82</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">现代文物</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="basis">
+                                <span>按保存状态</span>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no continue">6</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">继续修复</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no need">112</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">需要修复</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no">33550</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">不需要修复</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="word">
+                                    <div class="num">
+                                        <span class="counter_no finish">1234</span>
+                                        <span class="a">&nbsp;&nbsp;件</span>
+                                    </div>
+                                    <span class="name">已修复</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <div class="title">
+                            <div>
+                                <img src="../img/visitor_left.png"/>
+                                <span>特展人流情况图</span>
+                                <img src="../img/visitor_right.png"/>
+                            </div>
+                        </div>
+                        <div class="content" id="visitor_flowrate1"></div>
+                        <div class="content" id="visitor_flowrate2"></div>
+                        <div class="content" id="visitor_flowrate3"></div>
+                        <div class="footer">
+                            <span id="page_num">1</span>
+                            <span>/3</span>
+                            <button class="img" id="last_page" style="display: none">上一页</button>
+                            <button class="img" id="next_page">下一页</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="basic_info_bottom">
+                    <ul>
+                        <li style="background: url('../img/video1.png');background-size: 100% 100%">
+                            <img src="../img/video.png"/>
+                            <div class="mask">
+                                <div class="content">
+                                    <div>
+                                        今日观众：
+                                        <span class="audience">152</span>
+                                        人
+                                    </div>
+                                    <div class="characters">
+                                        <span>远古巴渝</span>
+                                        <p>巴渝地区发现了许多的旧石器文化遗址，时代分布从旧石器时代早期到晚期都有分布，
+                                            其人类发展序列相对完整，世界上少有，是研究早期人类活动的重要地区之一。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="background: url('../img/video2.png');background-size: 100% 100%">
+                            <img src="../img/video.png"/>
+                            <div class="mask">
+                                <div class="content">
+                                    <div>
+                                        今日观众：
+                                        <span class="audience">95</span>
+                                        人
+                                    </div>
+                                    <div class="characters">
+                                        <span>城市之路</span>
+                                        <p>重庆周朝时为巴国国都。公元前316年，秦灭巴国，设巴郡。在此后漫长的古代时期，
+                                            重庆一直是一个区域性的政治军事中心。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="background: url('../img/video3.png');background-size: 100% 100%">
+                            <img src="../img/video.png"/>
+                            <div class="mask">
+                                <div class="content">
+                                    <div>
+                                        今日观众：
+                                        <span class="audience">68</span>
+                                        人
+                                    </div>
+                                    <div class="characters">
+                                        <span>历代瓷器</span>
+                                        <p>瓷器是以瓷土（高岭土、长石、石英）为原料，粉碎、淘洗，拉坯成形，干燥、上釉，
+                                            然后入窑烘烧，烧制温度在1200℃以上，胎体致密坚硬，不吸水，撞击时有金属声，
+                                            釉层透明，有光泽度的一种实用与艺术和谐统一的瓷制品。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="background: url('../img/video4.png');background-size: 100% 100%">
+                            <img src="../img/video.png"/>
+                            <div class="mask">
+                                <div class="content">
+                                    <div>
+                                        今日观众：
+                                        <span class="audience">164</span>
+                                        人
+                                    </div>
+                                    <div class="characters">
+                                        <span>汉代雕塑艺术</span>
+                                        <p>阙，古时城门、宫殿、宅第、祠庙前的门楼，既可登高守望，亦可作装饰、“别尊卑”。
+                                            墓前石阙则是对墓主身前功名尊荣的显扬，同时，包括画像石刻中的诸多阙楼图像，
+                                            作为一种象征式样，也是天上神灵、死者灵魂进出的“神道”、“天门”。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="page2">
+            <div class="env_info">
+                <div class="env_info_box">
+                    <span>室外气象信息：<img src="../img/env_temp.png" alt="">&nbsp;&nbsp;27℃</span>
+                    <span><img src="../img/env_rain.png" alt="无法显示">&nbsp;&nbsp;58%</span>
+                    <span><img src="../img/env_sun.png" alt="无法显示" >&nbsp;&nbsp;&nbsp;晴天</span>
+                    <span><img src="../img/env_pm2.png" alt="无法显示">&nbsp;&nbsp;&nbsp;1.85ug/m<sup>3</sup></span>
+                    <span><img src="../img/env_wind.png" alt="无法显示">&nbsp;&nbsp;&nbsp;南风 2.5m/s</span>
+                    <i class="verticalLine"></i>
+                    <span class="env_right">馆内环境信息：远古巴渝展厅&nbsp;&nbsp;35℃&nbsp;&nbsp;<img src="../img/env_red_top.png" alt="无法显示"></span>
+                    <span class="env_right">历代瓷器展厅&nbsp;&nbsp;32℃&nbsp;&nbsp;<img src="../img/env_down.png" alt="无法显示"></span>
+                </div>
+                <div class="env_site">
+
+                    <div class="env_site_play">
+                        <ul>
+                            <li li-item="0" >
+                                <img src="../img/env_play.png" alt="无法显示" class="env_img">
+                                <div class="env_li_play"></div>
+                            </li>
+                            <li li-item="1">
+                                <img src="../img/env_play2.png" alt="无法显示" class="env_img">
+                                <div class="env_li_play"></div>
+                            </li>
+                            <li li-item="2">
+                                <img src="../img/env_play3.png" alt="无法显示" class="env_img">
+                                <div class="env_li_play"></div>
+                            </li>
+                            <li li-item="3">
+                                <img src="../img/env_play4.png" alt="无法显示" class="env_img">
+                                <div class="env_li_play"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="env_left_btn"></div>
+                    <div class="env_right_btn"></div>
+                    <div class="env_site_nav">
+                        <a href="javascript:void(0);">一层温湿度场</a> |
+                        <a href="javascript:void(0);">二层温湿度场</a> |
+                        <a href="javascript:void(0);">三层温湿度场</a> |
+                        <a href="javascript:void(0);">四层温湿度场</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="important_relics_info">
+                <div class="important_relics_info_top">
+                    <div>
+                        文物参观总人数：
+                        <span class="counter1">25800000</span>
+                        &nbsp;人
+                    </div>
+                    <div class="visit_num">
+                        今年参观人数：
+                        <span class="counter1">33251</span>
+                        &nbsp;人
+                        &nbsp;<img src="../img/env_red_top.png">
+                    </div>
+                    <div>同比去年参观人数：
+                        <span class="counter1">12788</span>
+                        &nbsp;人
+                        &nbsp;<img src="../img/env_down.png">
+                    </div>
+                </div>
+                <div class="important_relics_box">
+                    <img src="../img/important_font.png" alt="无法显示" class="important_font">
+                    <div class="important_relics_show">
+                        <div class="important_relics">
+                            <div class="important_relics_img">
+                                <ul id="show_one">
+                                    <li style="background: url('../img/important_pic1.jpg') no-repeat;background-size: 100% 100%">
+                                        <a href="./sx_important_details.html"></a>
+                                    </li>
+                                    <li style="background: url('../img/important_pic2.jpg') no-repeat;background-size: 100% 100%">
+                                        <a href="./sx_important_details.html"></a>
+                                    </li>
+                                    <li style="background: url('../img/important_pic3.jpg') no-repeat;background-size: 100% 100%">
+                                        <a href="./sx_important_details.html"></a>
+                                    </li>
+                                    <li style="background: url('../img/important_pic4.jpg') no-repeat;background-size: 100% 100%">
+                                        <a href="./sx_important_details.html"></a>
+                                    </li>
+                                    <li style="background: url('../img/important_pic5.jpg') no-repeat;background-size: 100% 100%">
+                                        <a href="./sx_important_details.html"></a>
+                                    </li>
+                                    <li style="background: url('../img/important_pic6.jpg') no-repeat;background-size: 100% 100%">
+                                        <a href="./sx_important_details.html"></a>
+                                    </li>
+                                </ul>
+                                <ul id="show_two"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <table>
+                        <col span="1" style="width: 7%;">
+                        <col span="1" style="width: 20%;">
+                        <col span="1" style="width: 5%;">
+                        <col span="2" style="width: 10%;">
+                        <col span="1" style="width: 14%;">
+                        <tr class="title">
+                            <th style="padding-left: 20px">藏品编号</th>
+                            <th style="padding-left: 20px">文物名称</th>
+                            <th>文物等级</th>
+                            <th>所属年代</th>
+                            <th>文物质地</th>
+                            <th style="text-align: center;">修复进度</th>
+                        </tr>
+                    </table>
+                    <div class="scroll">
+                        <table>
+                            <colgroup>
+                                <col span="1" style="width: 5%;">
+                                <col span="1" style="width: 20%;">
+                                <col span="1" style="width: 5%;">
+                                <col span="2" style="width: 10%;">
+                                <col span="1" style="width: 14%;">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <td>201705120001</td>
+                                <td>红瓷玉壶春瓶</td>
+                                <td>一级文物</td>
+                                <td>元朝</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 36%"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201705120002</td>
+                                <td>明万历款蓝釉大瓷碗</td>
+                                <td>一般文物</td>
+                                <td>明代</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 0"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201705120003</td>
+                                <td>清雍正“曙光堂制”款斗彩缠枝菊花纹瓷盘</td>
+                                <td>一级文物</td>
+                                <td>清</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 12%"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201705120004</td>
+                                <td>清翟子冶款紫砂壶</td>
+                                <td>二级文物</td>
+                                <td>清</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 88%"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201705120005</td>
+                                <td>明紫石端砚</td>
+                                <td>二级文物</td>
+                                <td>明代</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 50%"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201705120006</td>
+                                <td>现代郭沫若草书轴</td>
+                                <td>一般文物</td>
+                                <td>现代</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 100%"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201705120007</td>
+                                <td>清制宋绍兴十九年御赐安道款龙纹紫石端砚</td>
+                                <td>三级文物</td>
+                                <td>清制宋绍兴十九年</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 30%"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>201705120008</td>
+                                <td>清担当草书轴</td>
+                                <td>一级文物</td>
+                                <td>清</td>
+                                <td>/</td>
+                                <td>
+                                    <div class="schedule_bg">
+                                        <div class="schedule" style="width: 10%"></div>
+                                        <i class="ok"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="creative_relics">
+                <div class="env_info_box">
+                    <span>室外气象信息：<img src="../img/env_temp.png" alt="">&nbsp;&nbsp;27℃</span>
+                    <span><img src="../img/env_rain.png" alt="无法显示">&nbsp;&nbsp;58%</span>
+                    <span><img src="../img/env_sun.png" alt="无法显示" >&nbsp;&nbsp;&nbsp;晴天</span>
+                    <span><img src="../img/env_pm2.png" alt="无法显示">&nbsp;&nbsp;&nbsp;1.85ug/m<sup>3</sup></span>
+                    <span><img src="../img/env_wind.png" alt="无法显示">&nbsp;&nbsp;&nbsp;南风 2.5m/s</span>
+                    <i class="verticalLine"></i>
+                    <span class="env_right">馆内环境信息：远古巴渝展厅&nbsp;&nbsp;35℃&nbsp;&nbsp;<img src="../img/env_red_top.png" alt="无法显示"></span>
+                    <span class="env_right">历代瓷器展厅&nbsp;&nbsp;32℃&nbsp;&nbsp;<img src="../img/env_down.png" alt="无法显示"></span>
+                </div>
+                <div class="creative_relics_content">
+                    <div class="creative_video" style="background: url('../img/creative_video1.png');background-size:100% 100%;float: left">
+                        <div class="creative_video_play"></div>
+                    </div>
+                    <div class="creative_video" style="background: url('../img/creative_video2.png');background-size:100% 100%;float: right">
+                        <div class="creative_video_play"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="model_div"></div>
+        </div>
+        <div class="section">
+            <h1 class="num">第五屏</h1>
+        </div>
+    </div>
+    <!--video.js插件-->
+    <script src="../js/video.js"></script>
+    <!--echarts-->
+    <script type="text/javascript" src="../js/flow_number_echarts.js"></script>
+    <script type="text/javascript" src="../js/env_echarts_play.js"></script>
+    <!--视频遮罩层-->
+    <script type="text/javascript" src="../js/mouseMoving.js"></script>
+</body>
+</html>

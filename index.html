@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三峡博物馆</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <style type="text/css">
+        /*css样式初始化*/
+        html, body, div, span, object, iframe,h1, h2,
+        h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn,
+        em, img, ins,kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd,
+        ol, ul, li,fieldset, form, label, legend,table, caption, tbody,
+        tfoot,thead,tr, th, td,article, aside, canvas, details, figcaption,
+        figure, footer, header, hgroup, menu, nav, section, summary,time, mark,
+        audio, video{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            overflow: hidden;
+        }
+        #first_page{
+            width:100%;
+            background: url("img/first.png") no-repeat;
+            background-size:100% 100%;
+        }
+        .left_info{
+            position: relative;
+            left: 12%;
+            width: 30%;
+            height: 100%;
+            display: inline-block;
+            bottom: 0;
+        }
+        .summary{
+            height: 100%;
+        }
+        .title{
+            list-style: none;
+            height: 40px;
+            font-size:24px;
+            color: #ba9a67;
+            font-weight: 500;
+            position: absolute;
+            bottom: -40px;
+            opacity: 0;
+        }
+        .title:hover{
+            color: #75553f;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-left-color:#ba9a67;
+            display: inline-block;
+        }
+        .title:hover .triangle{
+            border-left-color: #75553f;
+        }
+        .word{
+            display: inline-block;
+            margin: 0;
+            height: 40px;
+            line-height: 40px;
+            float: right;
+            text-decoration: none;
+            cursor: pointer;
+            color: #ba9a67;
+        }
+        .word:hover{
+            color: #75553f;
+        }
+        .logo{
+            position: absolute;
+            left: 50%;
+            bottom: -65px;
+            margin: auto;
+            background: url("img/logo.png");
+            opacity: 0;
+            cursor: pointer;
+            background-size: 100% 100%;
+        }
+        @media screen and (min-width: 1366px) and (max-width: 1400px) {
+            .title{
+                font-size: 20px;
+                height: 30px;
+            }
+            .triangle{
+                border: 15px solid transparent;
+                border-left-color: #ba9a67;
+            }
+            .word{
+                height: 30px;
+                line-height: 30px;
+            }
+        }
+        @media screen and (min-width: 1401px) and (max-width: 1600px) {
+            .title{
+                font-size: 22px;
+                height: 34px;
+            }
+            .triangle{
+                border: 17px solid transparent;
+                border-left-color: #ba9a67;
+            }
+            .word{
+                height: 34px;
+                line-height: 34px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+</head>
+<body>
+    <div class="all">
+        <div id="first_page">
+            <div class="left_info">
+                 <ul class="summary">
+                     <li class="title">
+                         <span class="triangle"></span>
+                         <a href="html/sx_all.html" class="word">文物基本信息</a>
+                     </li>
+                     <li class="title">
+                         <span class="triangle"></span>
+                         <a href="html/sx_all.html" class="word">环境信息</a>
+                     </li>
+                     <li class="title">
+                         <span class="triangle"></span>
+                         <a href="html/sx_all.html" class="word">重点文物信息</a>
+                     </li>
+                     <li class="title">
+                         <span class="triangle"></span>
+                         <a href="html/sx_all.html" class="word">创意文物信息</a>
+                     </li>
+                     <li class="title">
+                         <span class="triangle"></span>
+                         <a href="html/sx_all.html" class="word">博物馆舆情信息</a>
+                     </li>
+                 </ul>
+            </div>
+            <div class="logo"></div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function (){
+        var interval = screen.height*120/1050;      //以1680*1050以上分辨率需要移动的高度为基准，定义li之间的间隔变量
+        var top_instance = screen.height*200/1050;  //以1680*1050以上分辨率li距离顶部的高度为基准，定义li距离顶部的高度
+        var logo_buttom = screen.height*80/1050;    //以1680*1050以上分辨率li距离顶部的高度为基准，定义logo距离底部的高度
+        //以1680*1050分辨率下logo宽高为基准，使其宽高随屏幕分辨率变化
+        $('.logo').width(screen.width*136/1680);
+        $('.logo').height(screen.height*65/1050);
+        //标题及logo动画方法
+        function animate(interval,top_instance,logo_buttom) {
+            for (var i=0;i<=li.length;i++){
+                li.eq(i).delay(i*600).animate({top:i*interval+top_instance,opacity:1},2000);
+            }
+            $('#first_page .logo').delay(3600).animate({bottom:logo_buttom,opacity:1},2500);
+        }
+        $('#first_page').height($(window).height());//高度自适应浏览器窗口高度
+        var li = $('#first_page .left_info .title');
+        animate(interval,top_instance,logo_buttom);
+        //跳转
+        setTimeout(function () {
+            location.href='html/sx_all.html'
+        },8000)
+    })
+</script>
+</html>
